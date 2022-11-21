@@ -22,7 +22,8 @@ install_server () {
 }
 
 run_server () {
-    sh /server/start-server.sh
+    cd /server
+    sh start-server.sh
 }
 
 installed=$(check_if_installed)
@@ -34,5 +35,4 @@ else
 fi
 
 echo "Running server..."
-/server/jre64/bin/java --version
 run_server
