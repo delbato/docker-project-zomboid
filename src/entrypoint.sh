@@ -4,7 +4,11 @@ echo "Chosen username and password: $STEAM_USERNAME:$STEAM_PASSWORD"
 env
 
 check_if_installed () {
-    echo false
+    if [ -f /server/start-server.sh ]; then
+        echo true
+    else
+        echo false
+    fi
 }
 
 install_server () {
@@ -19,8 +23,18 @@ install_server () {
     echo "My home directory is: $HOME"
 }
 
+run_server () {
+    sh /server/start-server.sh
+}
+
 installed=$(check_if_installed)
 if [ $installed = "false" ]; then
     echo "Server is not installed, installing..."
     install_server
+else
+    echo "Server is already installed."
 fi
+
+echo "Running server..."
+/server/jre64/bin/java --version
+run_server
