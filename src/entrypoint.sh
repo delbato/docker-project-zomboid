@@ -26,6 +26,7 @@ run_server () {
     pwd
     ls -lah $(pwd)
     ls -lah /server/jre64/bin
+    exec /server/jre64/bin/java -version
     sh start-server.sh
 }
 
