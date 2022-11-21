@@ -1,0 +1,7 @@
+data/
+server/
+.docker/
+.env.dist
+.env
+.gitignore
+docker-compose.yml
