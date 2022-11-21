@@ -2,7 +2,7 @@
 
 check_if_installed () {
     ls /server
-    if [ -f /server/start-server.sh ]; then
+    if [ -f /server/ProjectZomboid64 ]; then
         echo true
     else
         echo false
@@ -25,6 +25,7 @@ run_server () {
     cd /server
     pwd
     ls -lah $(pwd)
+    ls -lah /server/jre64/bin
     sh start-server.sh
 }
 
