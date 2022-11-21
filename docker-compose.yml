@@ -1,10 +1,10 @@
 version: "3"
 services:
   zomboid:
-    image: project-zomboid-server:latest
-    #build:
-    #  context: .
-    #  dockerfile: .docker/Dockerfile
+    #image: project-zomboid-server:latest
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
     volumes:
       - "./data:/root/Zomboid"
       - "./server:/server"
