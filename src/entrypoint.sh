@@ -1,9 +1,7 @@
 #! /bin/bash
 
-echo "Chosen username and password: $STEAM_USERNAME:$STEAM_PASSWORD"
-env
-
 check_if_installed () {
+    ls /server
     if [ -f /server/start-server.sh ]; then
         echo true
     else
