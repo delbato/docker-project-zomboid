@@ -1,0 +1,13 @@
+version: "3"
+services:
+  zomboid:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    volumes:
+      - "./data:/data"
+      - "./server:/server"
+    ports:
+      - 16261:16261
+      - 16262:16262
+    env_file: .env
