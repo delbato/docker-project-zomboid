@@ -23,10 +23,6 @@ install_server () {
 
 run_server () {
     cd /server
-    pwd
-    ls -lah $(pwd)
-    ls -lah /server/jre64/bin
-    ./jre64/bin/java -version
     sh start-server.sh
 }
 

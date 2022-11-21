@@ -1,4 +1,4 @@
-FROM steamcmd/steamcmd:alpine-3
+FROM steamcmd/steamcmd:ubuntu-20
 
 RUN mkdir -p /src
 RUN mkdir -p /server
@@ -10,4 +10,4 @@ VOLUME [ "/root/Zomboid" ]
 
 EXPOSE 16261/udp 16262/udp
 
-ENTRYPOINT [ "sh" , "/src/entrypoint.sh" ]
+ENTRYPOINT [ "bash" , "/src/entrypoint.sh" ]
