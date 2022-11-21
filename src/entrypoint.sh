@@ -23,6 +23,8 @@ install_server () {
 
 run_server () {
     cd /server
+    pwd
+    ls -lah $(pwd)
     sh start-server.sh
 }
 
