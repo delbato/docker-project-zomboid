@@ -23,7 +23,11 @@ run_server () {
 installed=$(check_if_installed)
 
 whoami
+id -u
+id -g 
 echo $HOME
+ls -lah $HOME
+ls -lah /home/zomboid/Server
 
 if [[ $installed = "false" ]]; then
     echo "Server is not installed, installing..."
