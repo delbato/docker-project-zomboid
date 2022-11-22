@@ -4,11 +4,10 @@ services:
     #image: project-zomboid-server:latest
     build:
       context: .
-      dockerfile: .docker/Dockerfile
+      dockerfile: Dockerfile
     volumes:
-      - "./data:/root/Zomboid"
-      - "./server:/server"
+      - "./server:/home/zomboid/erver"
     ports:
-      - 16261:16261
-      - 16262:16262
+      - 16261:16261/udp
+      - 16262:16262/udp
     env_file: .env
