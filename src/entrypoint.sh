@@ -10,6 +10,8 @@ check_if_installed () {
 
 install_server () {
     echo "Installing server..."
+    ls -lah /opt/steamcmd/
+    ls -lah /opt/steamcmd/linux32/
     cd /opt/steamcmd
     bash /opt/steamcmd/steamcmd.sh +force_install_dir /home/zomboid/Server +login anonymous +app_update 380870 validate +quit
     echo "Server installed."
