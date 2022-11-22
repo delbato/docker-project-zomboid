@@ -23,12 +23,12 @@ RUN mkdir -p /opt/steamcmd &&\
 
 
 # SteamCMD should not be used as root, here we set up user and variables
+RUN mkdir -p /home/zomboid/Server
+RUN mkdir -p /home/zomboid/Zomboid
+RUN chown -r zomboid:zomboid /home/zomboid
 
 USER zomboid
 WORKDIR /home/zomboid
-
-RUN mkdir -p /home/zomboid/Server
-RUN mkdir -p /home/zomboid/Zomboid
 
 VOLUME [ "/home/zomboid/Server" ]
 VOLUME [ "/home/zomboid/Zomboid" ]
