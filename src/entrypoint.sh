@@ -17,8 +17,7 @@ install_server () {
 
 run_server () {
     cd /home/zomboid/Server
-    chmod +x start-server.sh
-    ./start-server.sh
+    bash start-server.sh
 }
 
 installed=$(check_if_installed)
