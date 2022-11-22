@@ -6,7 +6,8 @@ services:
       context: .
       dockerfile: Containerfile
     volumes:
-      - "./server:/home/zomboid/erver"
+      - "./data:/home/zomboid/Zomboid"
+      - "./server:/home/zomboid/Server"
     ports:
       - 16261:16261/udp
       - 16262:16262/udp
