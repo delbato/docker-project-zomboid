@@ -13,7 +13,7 @@ install_server () {
     ls -lah /opt/steamcmd/
     ls -lah /opt/steamcmd/linux32/
     cd /opt/steamcmd
-    bash /opt/steamcmd/steamcmd.sh +force_install_dir /home/zomboid/Server +login anonymous +app_update 380870 validate +quit
+    sh /opt/steamcmd/steamcmd.sh +force_install_dir /home/zomboid/Server +login anonymous +app_update 380870 validate +quit
     echo "Server installed."
     touch /home/zomboid/Server/installed
 }
@@ -28,10 +28,7 @@ installed=$(check_if_installed)
 
 whoami
 id -u
-id -g 
-echo $HOME
-ls -lah $HOME
-ls -lah /home/zomboid/Server
+id -g
 
 if [[ $installed = "false" ]]; then
     echo "Server is not installed, installing..."
