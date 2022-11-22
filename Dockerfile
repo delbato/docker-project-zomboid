@@ -1,19 +1,41 @@
-FROM --platform=linux/amd64 steamcmd/steamcmd:alpine-3
+FROM --platform=amd64 ubuntu:22.04
 
-RUN addgroup zomboid
-RUN adduser -D zomboid -G zomboid -h /home/zomboid
-RUN apk add dash
-RUN apk add bash
+# create user for steam
+RUN adduser \
+	--home /home/zomboid \
+	--disabled-password \
+	--shell /bin/bash \
+	--gecos "user for running the zomboid server" \
+	--quiet \
+	zomboid
+
+# install dependencies
+RUN apt-get update && \
+    apt-get install -y curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Downloading SteamCMD and make the Steam directory owned by the steam user
+RUN mkdir -p /opt/steamcmd &&\
+    cd /opt/steamcmd &&\
+    curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz &&\
+    chown -R zomboid /opt/steamcmd
+
+
+# SteamCMD should not be used as root, here we set up user and variables
+USER zomboid
+WORKDIR /home/zomboid
 
 RUN mkdir -p /home/zomboid/Server
+RUN mkdir -p /home/zomboid/Zomboid
 
-EXPOSE 16261/udp 16262/udp
-VOLUME [ "/home/zomboid/Zomboid", "/home/zomboid/Server" ]
+VOLUME [ "/home/zomboid/Server" ]
+VOLUME [ "/home/zomboid/Zomboid" ]
 
-COPY src/entrypoint.sh /home/zomboid/entrypoint.sh
+EXPOSE 16261/udp
+EXPOSE 16262/udp
 
-RUN chown -R zomboid:zomboid /home/zomboid
+COPY src/entrypoint.sh /home/zomboid/
 
-USER zomboid
-ENV HOME=/home/zomboid
+# Execution vector
 ENTRYPOINT [ "bash", "/home/zomboid/entrypoint.sh" ]

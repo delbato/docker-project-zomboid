@@ -10,14 +10,14 @@ check_if_installed () {
 
 install_server () {
     echo "Installing server..."
-    steamcmd +force_install_dir /home/zomboid/Server +login anonymous +app_update 380870 validate +quit
+    /opt/steamcmd/steamcmd.sh +force_install_dir /home/zomboid/Server +login anonymous +app_update 380870 validate +quit
     echo "Server installed."
     touch /home/zomboid/Server/installed
 }
 
 run_server () {
     cd /home/zomboid/Server
-    bash start-server.sh
+    bash start-server.sh -servername $SERVER_NAME
 }
 
 installed=$(check_if_installed)
