@@ -1,12 +1,4 @@
-FROM steamcmd/steamcmd:ubuntu-20 as builder
-
-RUN mkdir -p /server
-
-RUN steamcmd +force_install_dir /server +login anonymous +app_update 380870 validate +quit
-
-FROM frolvlad/alpine-glibc:alpine-3.16
-
-RUN apk add bash
+FROM steamcmd/steamcmd:alpine-3.16
 RUN addgroup zomboid
 RUN adduser -D zomboid -G zomboid
 
