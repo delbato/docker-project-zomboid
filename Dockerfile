@@ -19,7 +19,8 @@ RUN apt-get update && \
 RUN mkdir -p /opt/steamcmd &&\
     cd /opt/steamcmd &&\
     curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz &&\
-    chown -R zomboid /opt/steamcmd
+    chown -R zomboid /opt/steamcmd && \
+    chmod -R o=+x,g=+x,o=+x /opt/steamcmd
 
 
 # SteamCMD should not be used as root, here we set up user and variables
