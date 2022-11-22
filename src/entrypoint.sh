@@ -17,6 +17,7 @@ install_server () {
 
 run_server () {
     cd /home/zomboid/Server
+    ls -lah /home/zomboid/Zomboid
     bash start-server.sh -servername $SERVER_NAME
 }
 
