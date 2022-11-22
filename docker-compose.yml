@@ -4,7 +4,7 @@ services:
     #image: project-zomboid-server:latest
     build:
       context: .
-      dockerfile: Containerfile
+      dockerfile: Dockerfile
     volumes:
       - "./data:/home/zomboid/Zomboid"
       - "./server:/home/zomboid/Server"
