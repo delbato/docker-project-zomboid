@@ -23,6 +23,7 @@ RUN mkdir -p /opt/steamcmd &&\
 
 
 # SteamCMD should not be used as root, here we set up user and variables
+
 USER zomboid
 WORKDIR /home/zomboid
 

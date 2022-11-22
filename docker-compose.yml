@@ -1,6 +1,7 @@
 version: "3"
 services:
   zomboid:
+    user: zomboid
     #image: project-zomboid-server:latest
     build:
       context: .

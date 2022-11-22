@@ -18,7 +18,7 @@ install_server () {
 run_server () {
     cd /home/zomboid/Server
     ls -lah /home/zomboid/Zomboid
-    bash start-server.sh -servername $SERVER_NAME
+    bash start-server.sh -adminusername $SERVER_ADMIN_USERNAME -adminpassword $SERVER_ADMIN_PASSWORD -servername $SERVER_NAME
 }
 
 installed=$(check_if_installed)
